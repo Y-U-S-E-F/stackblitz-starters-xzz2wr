@@ -1,0 +1,968 @@
+/* Estilo general */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f7f8fa; /* Fondo más suave y limpio */
+  color: #333;
+  line-height: 1.6;
+  padding-top: 50px; /* Asegura que el contenido no quede tapado por el header fijo */
+}
+
+/* Estilo para los encabezados principales */
+h1, h2 {
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+h1 {
+  font-size: 36px;
+  color: #0077cc;
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+h1:hover {
+  color: #00aaff; /* Transición de color más suave */
+  transform: scale(1.1); /* Agranda ligeramente al pasar el mouse */
+}
+
+h2 {
+  font-size: 28px;
+  color: #333;
+  border-bottom: 3px solid #00aaff;
+  padding-bottom: 10px;
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+h2:hover {
+  color: #0077cc;
+}
+
+/* Header y barra de navegación */
+header {
+  background-color: #0077cc;
+  color: #fff;
+  padding: 20px 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+}
+
+.navbar .logo h1 {
+  font-size: 30px;
+}
+
+.navbar nav ul {
+  list-style-type: none;
+  display: flex;
+}
+
+.navbar nav ul li {
+  margin: 0 25px;
+}
+
+.navbar nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.navbar nav ul li a:hover {
+  color: #ffde00; /* Resaltado amarillo */
+}
+
+/* Barra de búsqueda */
+.search-bar {
+  padding: 25px;
+  background-color: #f4f7f6;
+  text-align: center;
+  border-bottom: 2px solid #00aaff;
+}
+
+.search-bar input {
+  width: 60%;
+  padding: 14px;
+  font-size: 18px;
+  border: 1px solid #ccc;
+  border-radius: 30px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-bar input:focus {
+  border-color: #00aaff;
+  box-shadow: 0 0 10px rgba(0, 170, 255, 0.3);
+  outline: none;
+}
+
+/* Filtros */
+.filters {
+  padding: 20px;
+  background-color: #e0f7fa;
+  text-align: center;
+  border-bottom: 2px solid #0077cc;
+}
+
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.filter-buttons button {
+  background-color: #00aaff;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  margin: 10px;
+  font-size: 16px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.filter-buttons button:hover {
+  background-color: #0077cc;
+  transform: scale(1.05);
+}
+
+/* Recursos */
+.resources {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  justify-items: center;
+}
+
+.resource {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.resource:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.resource-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.resource-header h3 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+.resource-header .type {
+  background-color: #ffde00;
+  color: #333;
+  padding: 5px 15px;
+  border-radius: 50px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.resource p {
+  font-size: 14px;
+  margin-bottom: 15px;
+  line-height: 1.6;
+  color: #555;
+}
+
+.resource a {
+  color: #00aaff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.resource a:hover {
+  color: #0077cc;
+  text-decoration: underline;
+}
+
+/* Footer */
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  margin-top: 40px;
+}
+
+/* Media Queries para dispositivos móviles */
+@media (max-width: 768px) {
+  .search-bar input {
+    width: 80%;
+  }
+
+  .filter-buttons button {
+    width: 100%;
+  }
+
+  .resources {
+    grid-template-columns: 1fr; /* Un solo recurso por fila en pantallas pequeñas */
+  }
+
+  .navbar {
+    padding: 0 15px;
+  }
+
+  .navbar .logo h1 {
+    font-size: 26px;
+  }
+}
+/* Estilo para los párrafos */
+.resource p {
+  font-size: 16px; /* Aumento el tamaño de fuente para mayor legibilidad */
+  margin-bottom: 20px; /* Aumento el espacio entre párrafos */
+  line-height: 1.8; /* Mayor espacio entre líneas */
+  color: #555; /* Un color gris suave para una lectura cómoda */
+  text-align: justify; /* Alineación justificada para un formato más limpio */
+  text-indent: 20px; /* Añadí una sangría al comienzo de cada párrafo */
+}
+
+/* Estilo de los recursos */
+.resource {
+  background-color: #fff;
+  border: 1px solid #ddd; /* Borde más suave y claro */
+  border-radius: 12px; /* Bordes más redondeados para un aspecto más suave */
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden; /* Asegura que el contenido no sobresalga de los bordes */
+}
+
+/* Efecto visual al pasar el cursor por encima de los recursos */
+.resource:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Más sombra al pasar el cursor */
+  border-color: #00aaff; /* Cambio de color del borde al pasar el cursor */
+}
+
+/* Borde del header del recurso */
+.resource-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #f4f7f6; /* Línea sutil debajo del encabezado */
+  padding-bottom: 10px;
+}
+
+/* Título del recurso */
+.resource-header h3 {
+  font-size: 22px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Tipo de recurso */
+.resource-header .type {
+  background-color: #ffde00;
+  color: #333;
+  padding: 6px 15px;
+  border-radius: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 14px; /* Tamaño de fuente más pequeño para ajustarse bien */
+}
+
+/* Estilo para los enlaces en el recurso */
+.resource a {
+  color: #00aaff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.resource a:hover {
+  color: #0077cc;
+  text-decoration: underline;
+}
+
+/* Mejorando el estilo del contorno de los recursos */
+.resource {
+  border: 2px solid #ddd; /* Borde más destacado */
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1); /* Sombra más fuerte */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.resource:hover {
+  border-color: #00aaff; /* Cambio de borde al pasar el mouse */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Sombra más profunda */
+}
+/* Estilo general */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f7f8fa; /* Fondo más suave y limpio */
+  color: #333;
+  line-height: 1.6;
+  padding-top: 50px; /* Asegura que el contenido no quede tapado por el header fijo */
+}
+
+/* Estilo para los encabezados principales */
+h1, h2 {
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+h1 {
+  font-size: 36px;
+  color: #0077cc;
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+h1:hover {
+  color: #00aaff; /* Transición de color más suave */
+  transform: scale(1.1); /* Agranda ligeramente al pasar el mouse */
+}
+
+h2 {
+  font-size: 28px;
+  color: #333;
+  border-bottom: 3px solid #00aaff;
+  padding-bottom: 10px;
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+h2:hover {
+  color: #0077cc;
+}
+
+/* Header y barra de navegación */
+header {
+  background-color: #0077cc;
+  color: #fff;
+  padding: 20px 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+}
+
+.navbar .logo h1 {
+  font-size: 30px;
+}
+
+.navbar nav ul {
+  list-style-type: none;
+  display: flex;
+}
+
+.navbar nav ul li {
+  margin: 0 25px;
+}
+
+.navbar nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.navbar nav ul li a:hover {
+  color: #ffde00; /* Resaltado amarillo */
+}
+
+/* Barra de búsqueda */
+.search-bar {
+  padding: 25px;
+  background-color: #f4f7f6;
+  text-align: center;
+  border-bottom: 2px solid #00aaff;
+}
+
+.search-bar input {
+  width: 60%;
+  padding: 14px;
+  font-size: 18px;
+  border: 1px solid #ccc;
+  border-radius: 30px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-bar input:focus {
+  border-color: #00aaff;
+  box-shadow: 0 0 10px rgba(0, 170, 255, 0.3);
+  outline: none;
+}
+
+/* Filtros */
+.filters {
+  padding: 20px;
+  background-color: #e0f7fa;
+  text-align: center;
+  border-bottom: 2px solid #0077cc;
+}
+
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.filter-buttons button {
+  background-color: #00aaff;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  margin: 10px;
+  font-size: 16px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.filter-buttons button:hover {
+  background-color: #0077cc;
+  transform: scale(1.05);
+}
+
+/* Recursos */
+.resources {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Asegura que haya un número adecuado de columnas */
+  gap: 20px;
+  padding: 20px;
+  justify-items: center;
+  margin: 0 auto;
+}
+
+.resource {
+  background-color: #fff;
+  border: 2px solid #ddd; /* Borde más destacado */
+  border-radius: 12px; /* Bordes redondeados para un aspecto más suave */
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden; /* Asegura que el contenido no sobresalga de los bordes */
+}
+
+.resource:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  border-color: #00aaff;
+}
+
+/* Header del recurso */
+.resource-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #f4f7f6; /* Línea sutil debajo del encabezado */
+  padding-bottom: 10px;
+}
+
+.resource-header h3 {
+  font-size: 22px;
+  font-weight: bold;
+  color: #333;
+}
+
+.resource-header .type {
+  background-color: #ffde00;
+  color: #333;
+  padding: 6px 15px;
+  border-radius: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 14px;
+}
+
+/* Estilo para los párrafos */
+.resource p {
+  font-size: 16px; /* Aumento el tamaño de fuente para mayor legibilidad */
+  margin-bottom: 20px; /* Aumento el espacio entre párrafos */
+  line-height: 1.8; /* Mayor espacio entre líneas */
+  color: #555;
+  text-align: justify;
+  text-indent: 20px; /* Añadí una sangría al comienzo de cada párrafo */
+}
+
+/* Enlaces dentro de los recursos */
+.resource a {
+  color: #00aaff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.resource a:hover {
+  color: #0077cc;
+  text-decoration: underline;
+}
+
+/* Footer */
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  margin-top: 40px;
+}
+
+/* Media Queries para dispositivos móviles */
+@media (max-width: 768px) {
+  .search-bar input {
+    width: 80%;
+  }
+
+  .filter-buttons button {
+    width: 100%;
+  }
+
+  .resources {
+    grid-template-columns: 1fr; /* Un solo recurso por fila en pantallas pequeñas */
+  }
+
+  .navbar {
+    padding: 0 15px;
+  }
+
+  .navbar .logo h1 {
+    font-size: 26px;
+  }
+}
+/* Estilos Generales */
+#imagenes-lugares {
+  padding: 40px;
+  background-color: #f8f9fa;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+}
+
+#imagenes-lugares h2 {
+  font-size: 2.5rem;
+  color: #343a40;
+  margin-bottom: 30px;
+}
+
+/* Contenedor de las imágenes */
+.images-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  justify-items: center;
+  padding: 0 10px;
+}
+
+/* Estilo de cada item */
+.image-item {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.image-item p {
+  font-size: 1.1rem;
+  color: #495057;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Efecto al pasar el ratón por encima */
+.image-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Aseguramos que las imágenes se adapten bien */
+.image-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+/* Media Queries para mejorar la experiencia móvil */
+@media (max-width: 768px) {
+  #imagenes-lugares {
+    padding: 20px;
+  }
+  .images-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  #imagenes-lugares h2 {
+    font-size: 2rem;
+  }
+  .images-container {
+    grid-template-columns: 1fr;
+  }
+}
+/* Estilos Generales */
+#imagenes-lugares {
+  padding: 40px;
+  background-color: #f0f4f8;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+}
+
+#imagenes-lugares h2 {
+  font-size: 2.5rem;
+  color: #007bff; /* Color vibrante para el título */
+  margin-bottom: 30px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* Contenedor de las imágenes */
+.images-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  justify-items: center;
+  padding: 0 10px;
+}
+
+/* Estilo de cada item */
+.image-item {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  text-align: center;
+  border: 2px solid #007bff; /* Borde colorido */
+  background-color: #e7f1ff; /* Fondo suave con un toque de azul */
+}
+
+/* Colores de los textos */
+.image-item p {
+  font-size: 1.2rem;
+  color: #343a40;
+  font-weight: 600;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+/* Efecto al pasar el ratón por encima */
+.image-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+  background-color: #007bff; /* Cambio de fondo en hover */
+  color: #fff; /* Cambiar color de texto al pasar el ratón */
+}
+
+/* Estilo de las imágenes */
+.image-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+/* Estilos para los botones (si los tienes en cada item) */
+.image-item button {
+  padding: 10px 20px;
+  background-color: #ff6347; /* Botón color vibrante */
+  border: none;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.image-item button:hover {
+  background-color: #ff4500; /* Efecto de hover en botón */
+}
+
+/* Media Queries para mejorar la experiencia móvil */
+@media (max-width: 768px) {
+  #imagenes-lugares {
+    padding: 20px;
+  }
+  .images-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  #imagenes-lugares h2 {
+    font-size: 2rem;
+  }
+  .images-container {
+    grid-template-columns: 1fr;
+  }
+}
+/* Estilo general */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f9f9f9; /* Fondo neutro */
+  color: #333;
+}
+
+/* Estilos de los títulos */
+h1, h2, h3 {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+/* Header y barra de navegación */
+header {
+  background-color: #00aaff; /* Color vivo para el encabezado */
+  color: #fff;
+  padding: 15px 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.navbar .logo h1 {
+  font-size: 28px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.navbar nav ul {
+  list-style-type: none;
+}
+
+.navbar nav ul li {
+  display: inline;
+  margin: 0 15px;
+}
+
+.navbar nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.navbar nav ul li a:hover {
+  color: #ffde00; /* Color amarillo al pasar el mouse */
+}
+
+/* Barra de búsqueda */
+.search-bar {
+  padding: 20px;
+  background-color: #f4f7f6; /* Fondo claro */
+  text-align: center;
+}
+
+.search-bar input {
+  width: 70%;
+  padding: 12px;
+  font-size: 18px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+}
+
+.search-bar input:focus {
+  border-color: #00aaff; /* Color al hacer focus */
+  outline: none;
+}
+
+/* Filtros */
+.filters {
+  padding: 20px;
+  background-color: #e0f7fa; /* Fondo azul suave */
+  text-align: center;
+}
+
+.filter-buttons button {
+  background-color: #00aaff; /* Botones color vivo */
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  margin: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.filter-buttons button:hover {
+  background-color: #0077cc; /* Color más oscuro al pasar el mouse */
+}
+
+/* Recursos */
+.resources {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Diseño en grid para recursos */
+  gap: 20px;
+  justify-items: center;
+}
+
+.resource {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.resource:hover {
+  transform: scale(1.05); /* Efecto de agrandar al pasar el mouse */
+}
+
+.resource-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.resource-header h3 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.resource-header .type {
+  background-color: #ffde00; /* Color amarillo para el tipo */
+  color: #333;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.resource p {
+  font-size: 14px;
+  margin-bottom: 10px;
+  line-height: 1.5;
+  text-align: justify;
+}
+
+.resource a {
+  color: #00aaff;
+  text-decoration: none;
+}
+
+.resource a:hover {
+  text-decoration: underline;
+}
+
+/* Imagen en cada recurso */
+.resource img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+/* Footer */
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  margin-top: 40px;
+}
+
+/* Media Queries para dispositivos móviles */
+@media (max-width: 768px) {
+  .search-bar input {
+      width: 80%;
+  }
+
+  .filter-buttons button {
+      width: 100%;
+  }
+
+  .resources {
+      grid-template-columns: 1fr; /* Un solo elemento por fila en pantallas pequeñas */
+  }
+
+  .resource img {
+      width: 80%;
+  }
+}
